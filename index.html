@@ -310,6 +310,26 @@
 </html>
 
 <script>
+
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    // F12
+    if (e.key === "F12") {
+      e.preventDefault();
+    }
+
+    // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+U
+    if (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) {
+      e.preventDefault();
+    }
+
+    if (e.ctrlKey && e.key === "U") {
+      e.preventDefault();
+    }
+  });
   // Set tanggal target (YYYY-MM-DD HH:MM:SS)
   const targetDate = new Date("2026-04-05 00:00:00").getTime();
 
